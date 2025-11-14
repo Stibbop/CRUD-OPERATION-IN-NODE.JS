@@ -71,12 +71,24 @@ const deleteMember = async (req, res) => {
     }
 }
 
+//Get Members of a User
+const getMembersByUser = async (req, res) => {
+    try {
+        const members = await Member.find({user: req.params.userId}).populate('user');
+        res.json(members);
+    }
+    catch (err) {
+        res.status(500).json({ error: err.message});
+    }
+}
+
 
 
 //Exporting functions inside this controller
 module.exports = {
     createMember,
     getAllMembers,
+    getMembersByUser,
     getMember,
     updateMember,
     deleteMember,
