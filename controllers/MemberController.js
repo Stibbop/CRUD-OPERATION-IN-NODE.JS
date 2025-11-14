@@ -22,7 +22,7 @@ const createMember = async (req, res) => {
 //Function for Getting All Member Details
 const getAllMembers = async (req, res) => {
     try {
-        const members = await Member.find().populate();
+        const members = await Member.find().populate('user');
         return res.json(members);
     }
     catch (err) {
