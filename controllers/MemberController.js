@@ -19,7 +19,20 @@ const createMember = async (req, res) => {
     }
 };
 
-//Function for Getting Member Details
+//Function for Getting All Member Details
+const getAllMembers = async (req, res) => {
+    try {
+        const members = await Member.find().populate();
+        return res.json(members);
+    }
+    catch (err) {
+        return res.status(500).json({error: err.message});
+    }
+}
+
+
+
+//Function for Getting A Member Details
 const getMember = async (req, res) => {
     try {
         const member = await Member.findById(req.params.id).populate('user');
@@ -66,6 +79,7 @@ const deleteMember = async (req, res) => {
 //Exporting functions inside this controller
 module.exports = {
     createMember,
+    getAllMembers,
     getMember,
     updateMember,
     deleteMember,
