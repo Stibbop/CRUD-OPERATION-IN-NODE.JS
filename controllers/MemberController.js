@@ -38,9 +38,8 @@ const updateMember = async (req, res) => {
         const updateData = {};
         if (firstname) updateData.firstname = firstname;
         if (email) updateData.email = email;
-        if (userId !== undefined) updateData.user = userId;
 
-        const updatedMember = await Member.findByIdandUpdate(
+        const updatedMember = await Member.findByIdAndUpdate(
             req.params.id, updateData, { new: true});
         if (!updatedMember) return res.status(404).json({ error: 'Member not found' });
         return res.json(updatedMember);
@@ -53,7 +52,7 @@ const updateMember = async (req, res) => {
 //Function for Deleting a Member
 const deleteMember = async (req, res) => {
     try{
-        const deletedMember = await Member.findByIdandDelete(req.params.id);
+        const deletedMember = await Member.findByIdAndDelete(req.params.id);
         if (!deletedMember) return res.status(404).json({ error: 'Member not found'});
         return res.json({ message: 'Member deleted successfully'});
     }
