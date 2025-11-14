@@ -1,5 +1,7 @@
 const User = require('../models/User');
 
+const Member = require('../models/Member');
+
 // Creating of Users
 const createUser = async (req, res) => {
     try {
