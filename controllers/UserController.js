@@ -60,6 +60,7 @@ const deleteUser = async (req, res) => {
     }
 };
 
+// Get List of Members for a User
 const getMembersForUser = async (req, res) => {
     try {
     const { userId } = req.params;
@@ -72,6 +73,9 @@ const getMembersForUser = async (req, res) => {
         return res.status(500).json({ error: err.message });
     }
 };
+
+// Delete a member under 
+
 
 module.exports = {
     createUser,
