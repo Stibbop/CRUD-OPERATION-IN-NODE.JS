@@ -6,6 +6,10 @@ const memberSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    middlename:{
+        type: String,
+        required: true,
+    },
     lastname: {
         type: String,
         required: true,

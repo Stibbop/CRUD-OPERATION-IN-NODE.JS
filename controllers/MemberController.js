@@ -5,8 +5,8 @@ const Member = required('../models/Member'); //Importing Member Model
 //Function for Creation of Member
 const createMember = async (req, res) => {
     try {
-        const { firstname, lastname, email, civil_status, userId} = req.body;
-        const memberData = { firstname, lastname, email, civil_status}
+        const { firstname, middlename,lastname, email, civil_status, userId} = req.body;
+        const memberData = { firstname, middlename, lastname, email, civil_status}
         if (userId) {
             memberData.user = userId;
         }
@@ -34,7 +34,7 @@ const getMember = async (req, res) => {
 //Function for Updating Member Details
 const updateMember = async (req, res) => {
     try {
-        const { firstname, lastname, email, civil_status} = req.body;
+        const { firstname, middlename, lastname, email, civil_status} = req.body;
         const updateData = {};
         if (firstname) updateData.firstname = firstname;
         if (email) updateData.email = email;
