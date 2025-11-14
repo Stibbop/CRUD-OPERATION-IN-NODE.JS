@@ -22,7 +22,7 @@ const createMember = async (req, res) => {
 //Function for Getting Member Details
 const getMember = async (req, res) => {
     try {
-        const member = await Member.findbyId(req.params.id).populate('user');
+        const member = await Member.findById(req.params.id).populate('user');
         if (!member) return res.status(404).json({error: 'Member not found'});
         return res.json(member);
     }
@@ -40,7 +40,7 @@ const updateMember = async (req, res) => {
         if (email) updateData.email = email;
         if (userId !== undefined) updateData.user = userId;
 
-        const updatedMember = await Member.findbyIdandUpdate(
+        const updatedMember = await Member.findByIdandUpdate(
             req.params.id, updateData, { new: true});
         if (!updatedMember) return res.status(404).json({ error: 'Member not found' });
         return res.json(updatedMember);
@@ -53,7 +53,7 @@ const updateMember = async (req, res) => {
 //Function for Deleting a Member
 const deleteMember = async (req, res) => {
     try{
-        const deletedMember = await Member.findbyIdandDelete(req.params.id);
+        const deletedMember = await Member.findByIdandDelete(req.params.id);
         if (!deletedMember) return res.status(404).json({ error: 'Member not found'});
         return res.json({ message: 'Member deleted successfully'});
     }
