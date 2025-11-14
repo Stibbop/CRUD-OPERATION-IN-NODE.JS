@@ -11,7 +11,7 @@ app.use(cors());
 
 //Routes
 const memberRoutes = require('./routes/MemberRoutes');
-const userRoutes = require('./routes/userRoutes');
+const userRoutes = require('./routes/UserRoutes');
 app.use('/api/users', userRoutes);
 app.use('/api/members', memberRoutes);
 
