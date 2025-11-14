@@ -15,6 +15,10 @@ const memberSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    civil_status:{
+        type: String,
+        required: true,
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
