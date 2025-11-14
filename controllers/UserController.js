@@ -3,8 +3,8 @@ const User = require('../models/User');
 // Creating of Users
 const createUser = async (req, res) => {
     try {
-        const { username, password, email, civil_status } = req.body;
-        const user = new User({ username, password, email, civil_status });
+        const { firstName, middleName, lastName, email, civil_Status } = req.body;
+        const user = new User({ firstName, middleName, lastName, email, civil_Status });
         await user.save();
         return res.json(user);
     } catch (err) {
@@ -26,24 +26,27 @@ const getUser = async (req, res) => {
 // Updating User's Details middlename and civil status
 const updateUser = async (req, res) => {
     try {
-        const { middlename, civil_status } = req.body;
-        const updatedUser = await User.findByIdAndUpdate(
-            req.params.id,
-            { middlename, civil_status },
-            {new: true}
-        );
+        const { middleName, civil_Status } = req.body;
+        const updateData = {};
+        if (middleName) updateData.middleName = middleName;
+        if (civil_Status) updateData.civil_Status = civil_Status;
+
+        const updatedUser = await User.findByIdAndUpdate(req.params.id, updateData, { new: true });
+        if (!updatedUser) return res.status(404).json({ error: 'User not found' });
         return res.json(updatedUser);
-    } catch (err) {
-        return res.status(500).json({ error: err.message });
-    }
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
 };
 
 // Deletion of Users
 const deleteUser = async (req, res) => {
     try {
-        const deleted = await User.findByIdAndDelete(req.params.id);
-        if (!deleted) return res.status(404).json({ error: 'User not found' });
-        return res.json({ message: 'User deleted successfully' });
+        const user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ error: 'User not found' });
+
+        await user.remove();
+        return res.json({ message: 'User and their members deleted successfully' });
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }

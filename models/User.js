@@ -2,15 +2,15 @@ const mongoose = require ('mongoose');
 const Member = require('./Member'); //Import Member model for cascading delete
 
 const userSchema = new mongoose.Schema({
-    firstname: {
+    firstName: {
         type: String,
         required:  true,
     },
-    middlename: {
+    middleName: {
         type: String,
         required: false,
     },
-    lastname: {
+    lastName: {
         type: String,
         required: true,
     },
@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    civil_status: {
+    civil_Status: {
         type: String,
         required: true,
     }
