@@ -25,9 +25,11 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+// When a user is removed, delete all linked members
 userSchema.pre('remove', async function (next) {
     await Member.deleteMany({ userId: this._id });
     next();
 });
 
+// Exact Collection Name
 module.exports = mongoose.model('User', userSchema, 'Users');
