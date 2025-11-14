@@ -1,6 +1,6 @@
 const { get } = require("mongoose");
 
-const Member = required('../models/Member'); //Importing Member Model
+const Member = require('../models/Member'); //Importing Member Model
 
 //Function for Creation of Member
 const createMember = async (req, res) => {
