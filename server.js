@@ -11,7 +11,7 @@ app.use(cors());
 
 //Routes
 const memberRoutes = require('./routes/MemberRoutes');
-app.use('/api', memberRoutes);
+app.use('/api/members', memberRoutes);
 
 //MongoDB Connection
 mongoose.connect(process.env.MONGO_URI) 
