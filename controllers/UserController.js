@@ -1,5 +1,6 @@
 const User = require('../models/User');
 
+// Creating of Users
 const createUser = async (req, res) => {
     try {
         const { username, password, email, civil_status } = req.body;
@@ -11,6 +12,7 @@ const createUser = async (req, res) => {
     }
 };
 
+// Getting User's Details
 const getUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
@@ -21,6 +23,7 @@ const getUser = async (req, res) => {
     }
 };
 
+// Updating User's Details middlename and civil status
 const updateUser = async (req, res) => {
     try {
         const { middlename, civil_status } = req.body;
@@ -34,3 +37,21 @@ const updateUser = async (req, res) => {
         return res.status(500).json({ error: err.message });
     }
 };
+
+// Deletion of Users
+const deleteUser = async (req, res) => {
+    try {
+        const deleted = await User.findByIdAndDelete(req.params.id);
+        if (!deleted) return res.status(404).json({ error: 'User not found' });
+        return res.json({ message: 'User deleted successfully' });
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+};
+
+module.exports = {
+    createUser,
+    getUser,
+    updateUser,
+    deleteUser
+}
