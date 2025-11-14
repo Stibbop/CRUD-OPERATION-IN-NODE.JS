@@ -75,8 +75,8 @@ const deleteMember = async (req, res) => {
 // Function for Getting Members by User
 const getMembersByUser = async (req, res) => {
     try {
-        const { userId } = req.params; // Assuming userId is passed as a route parameter
-        const members = await Member.find({ user: userId }); // Query members by userId
+        const { userId } = req.params; 
+        const members = await Member.find({ user: userId }); 
         if (members.length === 0) {
             return res.status(404).json({ message: 'No members found for this user' });
         }
@@ -85,7 +85,6 @@ const getMembersByUser = async (req, res) => {
         return res.status(500).json({ error: err.message });
     }
 };
-
 
 
 //Exporting functions inside this controller
