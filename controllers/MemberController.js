@@ -45,10 +45,11 @@ const getMember = async (req, res) => {
 //Function for Updating Member Details
 const updateMember = async (req, res) => {
     try {
-        const { firstName, middleName, lastName, email, civilStatus} = req.body;
+        const { firstName, middleName, lastName, email, civilStatus, userId} = req.body;
         const updateData = {};
         if (firstName) updateData.firstName = firstName;
         if (email) updateData.email = email;
+        if (userId) updateData.user = userId;
         const updatedMember = await Member.findByIdAndUpdate(
             req.params.id, updateData, { new: true});
         if (!updatedMember) return res.status(404).json({ error: 'Member not found' });
