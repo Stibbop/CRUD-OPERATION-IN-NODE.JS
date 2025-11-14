@@ -1,4 +1,5 @@
 const mongoose = require ('mongoose');
+const Member = require('./Member'); //Import Member model for cascading delete
 
 const userSchema = new mongoose.Schema({
     firstname: {
