@@ -11,6 +11,8 @@ app.use(cors());
 
 //Routes
 const memberRoutes = require('./routes/MemberRoutes');
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 app.use('/api/members', memberRoutes);
 
 //MongoDB Connection

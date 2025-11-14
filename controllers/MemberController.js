@@ -49,7 +49,6 @@ const updateMember = async (req, res) => {
         const updateData = {};
         if (firstName) updateData.firstName = firstName;
         if (email) updateData.email = email;
-
         const updatedMember = await Member.findByIdAndUpdate(
             req.params.id, updateData, { new: true});
         if (!updatedMember) return res.status(404).json({ error: 'Member not found' });
