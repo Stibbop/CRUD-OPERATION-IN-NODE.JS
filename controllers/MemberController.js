@@ -5,8 +5,8 @@ const Member = require('../models/Member'); //Importing Member Model
 //Function for Creation of Member
 const createMember = async (req, res) => {
     try {
-        const { firstname, middlename,lastname, email, civil_status, userId} = req.body;
-        const memberData = { firstname, middlename, lastname, email, civil_status}
+        const { firstName, middleName, lastName, email, civilStatus, userId} = req.body;
+        const memberData = { firstName, middleName, lastName, email, civilStatus}
         if (userId) {
             memberData.user = userId;
         }
@@ -30,8 +30,6 @@ const getAllMembers = async (req, res) => {
     }
 }
 
-
-
 //Function for Getting A Member Details
 const getMember = async (req, res) => {
     try {
@@ -47,9 +45,9 @@ const getMember = async (req, res) => {
 //Function for Updating Member Details
 const updateMember = async (req, res) => {
     try {
-        const { firstname, middlename, lastname, email, civil_status} = req.body;
+        const { firstName, middleName, lastName, email, civilStatus} = req.body;
         const updateData = {};
-        if (firstname) updateData.firstname = firstname;
+        if (firstName) updateData.firstName = firstName;
         if (email) updateData.email = email;
 
         const updatedMember = await Member.findByIdAndUpdate(

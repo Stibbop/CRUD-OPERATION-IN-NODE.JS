@@ -2,15 +2,15 @@ const mongoose = require('mongoose'); //Import Mongoose
 
 //Creation of Member Schema
 const memberSchema = new mongoose.Schema({
-    firstname: {
+    firstName: {
         type: String,
         required: true,
     },
-    middlename:{
+    middleName:{
         type: String,
         required: true,
     },
-    lastname: {
+    lastName: {
         type: String,
         required: true,
     },
@@ -19,7 +19,7 @@ const memberSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    civil_status:{
+    civilStatus:{
         type: String,
         required: true,
     },
