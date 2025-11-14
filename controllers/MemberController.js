@@ -22,7 +22,7 @@ const createMember = async (req, res) => {
 //Function for Getting All Member Details
 const getAllMembers = async (req, res) => {
     try {
-        const members = await Member.find().populate('user');
+        const members = await Member.find().populate();
         return res.json(members);
     }
     catch (err) {
@@ -72,16 +72,19 @@ const deleteMember = async (req, res) => {
     }
 }
 
-//Get Members of a User
+// Function for Getting Members by User
 const getMembersByUser = async (req, res) => {
     try {
-        const members = await Member.find({user: req.params.userId}).populate('user');
-        res.json(members);
+        const { userId } = req.params; // Assuming userId is passed as a route parameter
+        const members = await Member.find({ user: userId }); // Query members by userId
+        if (members.length === 0) {
+            return res.status(404).json({ message: 'No members found for this user' });
+        }
+        return res.json(members);
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
     }
-    catch (err) {
-        res.status(500).json({ error: err.message});
-    }
-}
+};
 
 
 
