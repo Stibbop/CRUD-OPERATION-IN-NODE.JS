@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
 
 // When a user is removed, delete all linked members
 userSchema.pre('remove', async function (next) {
-    await Member.deleteMany({ userId: this._id });
+    await Member.deleteMany({ user: this._id });
     next();
 });
 
