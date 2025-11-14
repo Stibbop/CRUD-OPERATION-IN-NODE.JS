@@ -12,6 +12,16 @@ const createUser = async (req, res) => {
     }
 };
 
+// Getting All Users
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find().populate();
+        return res.json(users);
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+};
+
 // Getting User's Details
 const getUser = async (req, res) => {
     try {
@@ -54,6 +64,7 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
     createUser,
+    getAllUsers,
     getUser,
     updateUser,
     deleteUser
