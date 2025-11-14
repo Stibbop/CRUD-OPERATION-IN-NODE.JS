@@ -60,9 +60,23 @@ const deleteUser = async (req, res) => {
     }
 };
 
+const getMembersForUser = async (req, res) => {
+    try {
+    const { userId } = req.params;
+        const members = await Member.find({ user: userId });
+        if (members.length === 0) {
+            return res.status(404).json({ message: 'No members found for this user' });
+        }
+        return res.json(members);
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
+    }
+};
+
 module.exports = {
     createUser,
     getAllUsers,
+    getMembersForUser,
     getUser,
     updateUser,
     deleteUser
