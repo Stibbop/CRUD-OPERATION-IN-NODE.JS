@@ -37,4 +37,17 @@ describe("Member Routes Tests", () => {
     const res = await request(app).get("/api/members/user/123");
     expect(res.statusCode).toBe(200);
   });
+  //Test Update member route
+  test("PATCH /api/members/:id should return 200", async () => {
+  const res = await request(app)
+    .patch("/api/members/123")
+    .send({ firstName: "Updated" });
+
+  expect(res.statusCode).toBe(200);
+});
+  //Test Delete member route
+  test("DELETE /api/members/:id should return 200", async () => {
+  const res = await request(app).delete("/api/members/123");
+  expect(res.statusCode).toBe(200);
+});
 });
