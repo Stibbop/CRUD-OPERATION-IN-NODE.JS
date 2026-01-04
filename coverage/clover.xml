@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1766383790790" clover="3.2.0">
-  <project timestamp="1766383790790" name="All files">
-    <metrics statements="124" coveredstatements="122" conditionals="28" coveredconditionals="25" methods="13" coveredmethods="12" elements="165" coveredelements="159" complexity="0" loc="124" ncloc="124" packages="3" files="6" classes="6"/>
+<coverage generated="1767557291113" clover="3.2.0">
+  <project timestamp="1767557291113" name="All files">
+    <metrics statements="124" coveredstatements="124" conditionals="28" coveredconditionals="25" methods="13" coveredmethods="13" elements="165" coveredelements="162" complexity="0" loc="124" ncloc="124" packages="3" files="6" classes="6"/>
     <package name="controllers">
       <metrics statements="94" coveredstatements="94" conditionals="28" coveredconditionals="25" methods="12" coveredmethods="12"/>
       <file name="MemberController.js" path="C:\Users\steve\Documents\CRUD-OPERATION-IN-NODE.JS\controllers\MemberController.js">
@@ -106,22 +106,22 @@
       </file>
     </package>
     <package name="models">
-      <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Member.js" path="C:\Users\steve\Documents\CRUD-OPERATION-IN-NODE.JS\models\Member.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="33" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
       </file>
       <file name="User.js" path="C:\Users\steve\Documents\CRUD-OPERATION-IN-NODE.JS\models\User.js">
-        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
       </file>
     </package>
     <package name="routes">
